@@ -1,0 +1,21 @@
+body {
+    background-color: #FFC8DD;
+}
+
+.board {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 15vh;
+    height: 2px;
+    outline: none;
+    border-radius: 2px;
+    background: 'red';
+    -webkit-transition:.2s;
+    transition: opacity .2s;
+}
