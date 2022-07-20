@@ -1,6 +1,7 @@
 let slider = document.getElementById("slider");
 let sliderLabel = document.querySelector('.sliderLabel');
-let color = "black";
+let colorPicker = document.getElementById("colorPicker");
+let color = "rainbow";
 
 
 function populateBoard (sliderValue) {
@@ -21,7 +22,10 @@ function populateBoard (sliderValue) {
         board.insertAdjacentElement("beforeend", square);
     }
 }
-populateBoard(32)
+populateBoard(6)
+
+
+
 
 
 function changeGridSize () {
@@ -37,9 +41,28 @@ slider.addEventListener("mouseup", function() {sliderLabel.textContent = slider.
 
 
 function colorSquare() {
-    this.style.backgroundColor = color;
+    if (color === 'rainbow') {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 65%)`;
+    } 
+    else if (color === 'eraser') {
+        this.style.backgroundColor = '#ffeff5' 
+    } else {
+        this.style.backgroundColor = colorPicker.value
+    }
 }
 
 function changeColor (choice) {
     color = choice;
+}
+
+function resetBoard () {
+    let board = document.querySelector(".board");
+    let squares = board.querySelectorAll("div");
+    let sliderLabel = document.querySelector(".sliderLabel");
+    squares.forEach((div) => div.style.backgroundColor = '#ffeff5');
+    populateBoard(6);
+    sliderLabel.innerText = '6'
+    slider.value = '6'
+
+  
 }

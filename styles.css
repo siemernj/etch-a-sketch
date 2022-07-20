@@ -1,12 +1,58 @@
+
 body {
-    background-color: #FFC8DD;
+	background: linear-gradient(-45deg, #FFC8DD, #FFAFCC, #A2D2FF, #BDE0FE);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 10vh;
+    text-align: center;
+    color: #ffffff;
 }
 
 .board {
     width: 500px;
     height: 500px;
-    display: grid;
-    
+    display: grid;    
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.paletteButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 input[type="range"] {
@@ -19,3 +65,86 @@ input[type="range"] {
     -webkit-transition:.2s;
     transition: opacity .2s;
 }
+
+button {
+    padding: 7px 20px;
+    border: 1px solid var(--primary-dark);
+    border-radius: 5px;
+    margin: 8px;
+    background: none;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #9B5DE5;
+  transition: 0.7s;
+}
+
+button:focus {
+  background-color: #ffef8a;
+  color: #9B5DE5;
+}
+
+.slider{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255, .5);
+  padding: 5px 20px;
+  background-color: rgb(255, 255, 255, .5);
+  width: 220px;
+  font-family: Arial;
+  font-size: 14px;
+  color: #5e5e5e;
+
+}
+
+
+
+button,
+input[type='color'] {
+  transition: transform 0.1s ease-in-out;
+}
+
+#colorPicker {
+  border-radius: 40px;
+  background-color: #ffffff;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+button:hover,
+input[type='color']:hover {
+  transform: scale(1.05);
+}
+
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+  }
+  
+  input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+  }
+  
+  input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
